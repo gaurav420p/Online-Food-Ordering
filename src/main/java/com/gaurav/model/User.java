@@ -25,7 +25,7 @@ public class User {
     private String password;
     private USER_ROLE role;
 
-    @JsonIgnore
+    @JsonIgnore //when you return a Customer in a REST API, the orders list will not be included in the response.
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "customer")
     private List<Order> orders=new ArrayList<>();
 

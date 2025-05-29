@@ -36,7 +36,7 @@ public class Order {
     @ManyToOne
     private Address delieveryAddress;
 
-    @OneToMany
+    @OneToMany// one order can have multiple items
     private List<OrderItem> items;
 
     //private Payment payment
