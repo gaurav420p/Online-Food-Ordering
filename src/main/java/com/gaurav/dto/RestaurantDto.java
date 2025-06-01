@@ -7,7 +7,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-@Embeddable
+@Embeddable //is a JPA annotation that marks the class as a value object to be embedded in another entity, meaning its fields will be part of the owning entity’s table
 public class RestaurantDto {
     private String title;
 
