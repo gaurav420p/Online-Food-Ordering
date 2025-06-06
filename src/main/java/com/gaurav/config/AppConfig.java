@@ -41,6 +41,7 @@ public class AppConfig {
 
                                  // 🌐 All other requests (not matching above) are allowed without login
                                  .anyRequest().permitAll()
+
                  ).addFilterBefore(new JwtTokenValidator(), BasicAuthenticationFilter.class)
                  .csrf(csrf->csrf.disable())
                  .cors(cors->cors.configurationSource(corsconfigurationSource()));

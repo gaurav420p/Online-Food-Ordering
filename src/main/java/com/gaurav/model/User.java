@@ -23,7 +23,7 @@ public class User {
     private  String fullName;
     private  String email;
     private String password;
-    private USER_ROLE role;
+    private USER_ROLE role=USER_ROLE.ROLE_CUSTOMER;
 
     @JsonIgnore //when you return a Customer in a REST API, the orders list will not be included in the response.
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "customer")
