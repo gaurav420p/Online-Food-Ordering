@@ -16,7 +16,6 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
-
 import static java.util.Arrays.asList;
 
 @Configuration
@@ -51,24 +50,34 @@ public class AppConfig {
     }
 
     private CorsConfigurationSource corsconfigurationSource() {
-         return new CorsConfigurationSource() {
-             @Override
-             public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
-                 CorsConfiguration cfg = new CorsConfiguration();
+        return new CorsConfigurationSource() {
+            @Override
+            public CorsConfiguration getCorsConfiguration(HttpServletRequest request) {
+                CorsConfiguration cfg = new CorsConfiguration();
 
-                 cfg.setAllowedOrigins(asList(
-                         "http://localhost:3000"
-                 ));
-                 cfg.setAllowedMethods(Collections.singletonList("*"));
-                 cfg.setAllowCredentials(true);
-                 cfg.setAllowedHeaders(Collections.singletonList("*"));
-                 cfg.setExposedHeaders(Arrays.asList("Authorization"));
-                 cfg.setMaxAge(3600L);
+                // 1. Allow requests from your React frontend
+                cfg.setAllowedOrigins(asList("http://localhost:3000"));
 
-                 return cfg;
-             }
-         };
+                // 2. Allow all HTTP methods (GET, POST, PUT, DELETE, etc.)
+                cfg.setAllowedMethods(Collections.singletonList("*"));
+
+                // 3. Allow sending credentials (cookies, auth headers)
+                cfg.setAllowCredentials(true);
+
+                // 4. Allow all headers in the request
+                cfg.setAllowedHeaders(Collections.singletonList("*"));
+
+                // 5. Let frontend access the Authorization header in the response
+                cfg.setExposedHeaders(Arrays.asList("Authorization"));
+
+                // 6. Cache the CORS response for 1 hour
+                cfg.setMaxAge(3600L);
+
+                return cfg;
+            }
+        };
     }
+
     @Bean
     PasswordEncoder passwordEncoder(){
          return new BCryptPasswordEncoder();
