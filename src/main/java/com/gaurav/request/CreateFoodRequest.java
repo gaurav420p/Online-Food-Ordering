@@ -2,9 +2,10 @@ package com.gaurav.request;
 
 import com.gaurav.model.Category;
 import com.gaurav.model.IngredientsItem;
+import lombok.Data;
 
 import java.util.List;
-
+@Data
 public class CreateFoodRequest {
     private String name;
     private String description;
@@ -14,7 +15,7 @@ public class CreateFoodRequest {
     private List<String> images;
 
     private Long restaurantId;
-    private boolean vegeterian;
+    private boolean vegetarian;
     private boolean seasonal;
     private List<IngredientsItem> ingredients;
 }
