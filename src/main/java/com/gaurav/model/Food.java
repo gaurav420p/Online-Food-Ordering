@@ -23,7 +23,8 @@ public class Food {
     private Long price;
 
     @ManyToOne
-    private  Category FoodCategory;
+    @JoinColumn(name = "category_id")
+    private Category foodCategory;
 
     @Column(length = 1000)
     @ElementCollection
