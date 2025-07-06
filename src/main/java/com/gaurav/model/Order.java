@@ -34,7 +34,7 @@ public class Order {
     private Date createdAt;
 
     @ManyToOne
-    private Address delieveryAddress;
+    private Address deliveryAddress;
 
     @OneToMany// one order can have multiple items
     private List<OrderItem> items;
@@ -43,7 +43,7 @@ public class Order {
 
     private int totalItem;
 
-    private int totalPrice;
+    private Long totalPrice;
 
 
 
