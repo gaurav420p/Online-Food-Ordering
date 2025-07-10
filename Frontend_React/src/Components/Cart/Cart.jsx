@@ -37,7 +37,7 @@ const initialValues = {
 
 
 
-const items=[1,1] 
+const items=[1,1,1] 
 
 const Cart = () => { 
 

@@ -17,7 +17,8 @@ const Home = () => {
                 <p className='z-10 text-gray-300 text-xl lg:text-4xl'>Delivered</p>
             </div>
             <div className='cover absolute top-0 left-0 right-0'>
-
+                {/* Most likely acts as a dark or blurred overlay that sits 
+                above the background but behind the text (due to z-10 on text). */}
             </div>
             <div className='fadout'>
 

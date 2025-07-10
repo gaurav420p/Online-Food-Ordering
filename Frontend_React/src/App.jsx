@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { ThemeProvider } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
 import Navbar from './Components/Navbar/Navbar';
@@ -8,18 +8,23 @@ import RestaurantDetails from './Components/Restaurant/RestaurantDetails';
 import Cart from './Components/Cart/Cart';
 import Profile from './Components/Profile/Profile';
 import CustomerRoute from './Components/Routers/CustomerRoute';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUser } from "./Components/State/Authentication/Action";
+
 
 const App = () => {
+  const dispatch=useDispatch();
+  const jwt=localStorage.getItem("jwt");
+  const {auth}=useSelector(store=>store)
+
+  useEffect(()=>{
+    dispatch(getUser(auth.jwt || jwt))
+  },[auth.jwt])
+  
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      {/* <Navbar />
-      {/* <Home/>
-       */}
-       {/* <RestaurantDetails/>
-       <C */}
-       {/* <Cart/> */}
-       {/* <Profile/> */} 
+     
        <CustomerRoute/>
        
     </ThemeProvider>

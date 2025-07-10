@@ -67,6 +67,20 @@ const RestaurantDetails = () => {
                 alt=''
               />
             </Grid>
+            <Grid item xs={12} lg={6}>
+              <img
+                className='w-full h-[40vh] object-cover'
+                src='https://images.pexels.com/photos/2291599/pexels-photo-2291599.jpeg'
+                alt=''
+              />
+            </Grid>
+            <Grid item xs={12} lg={6}>
+              <img
+                className='w-full h-[40vh] object-cover'
+                src='https://images.pexels.com/photos/3556225/pexels-photo-3556225.jpeg'
+                alt=''
+              />
+            </Grid>
           </Grid>
         </div>
 
@@ -86,6 +100,7 @@ const RestaurantDetails = () => {
           </div>
         </div>
       </section>
+      
 
       <Divider />
 
