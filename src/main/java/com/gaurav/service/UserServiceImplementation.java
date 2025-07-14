@@ -17,10 +17,16 @@ public class UserServiceImplementation implements UserService{
 
     @Override
     public User findUserByJwtToken(String jwt) throws Exception {
-        String email=jwtProvider.getEmailFromJwtToken(jwt);
-        User user=findUserByEmail(email);
+        if (jwt.startsWith("Bearer ")) {
+            jwt = jwt.substring(7); // remove "Bearer " prefix
+        }
+
+        String email = jwtProvider.getEmailFromJwtToken(jwt);
+        User user = findUserByEmail(email);
         return user;
     }
+
+
 
     @Override
     public User findUserByEmail(String email) throws Exception {

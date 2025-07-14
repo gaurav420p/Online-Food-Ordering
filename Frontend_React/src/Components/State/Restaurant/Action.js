@@ -14,6 +14,7 @@ import { CREATE_EVENTS_FAILURE, CREATE_RESTAURANT_FAILURE, CREATE_RESTAURANT_REQ
     UPDATE_RESTAURANT_STATUS_REQUEST,
     UPDATE_RESTAURANT_STATUS_SUCCESS,
     UPDATE_RESTAURANT_SUCCESS} from "./ActionTypes";
+    import { api } from "../../config/api";
 
     //get all restaurant
 export const getAllRestaurantAction=(token)=>{

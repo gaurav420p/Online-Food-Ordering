@@ -1,15 +1,22 @@
-import React from 'react'
-import RestaurantCard from '../Restaurant/RestaurantCard'
+import React, { useEffect } from 'react'
+import RestaurantCard from '../../components/Restaurant/RestaurantCard'
 
-const Favorites = () => {
+import { useDispatch, useSelector } from 'react-redux'
+
+const Favorite = () => {
+  const {auth}=useSelector(store=>store);
+
+  useEffect(()=>{
+    // dispatch()
+  },[])
   return (
-    <div>
-      <h1 className='py-5 text-xl font-semibold text-center'>My Favorites</h1>
-      <div className='flex flex-wrap gap-3 justify-center'>
-        {[1,1,1,1,1,1,1,1,1,1,1].map((item)=><RestaurantCard/>)}
-      </div>
+   <div>
+    <h1 className='py-5 text-xl font-semibold text-center'>My Favorites</h1>
+     <div className='flex flex-wrap justify-center'>
+      {auth.favorites?.map((item)=><RestaurantCard data={item}/>)}
     </div>
+   </div>
   )
 }
 
-export default Favorites
+export default Favorite

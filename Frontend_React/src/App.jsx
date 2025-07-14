@@ -7,9 +7,10 @@ import Home from './Components/Home/Home';
 import RestaurantDetails from './Components/Restaurant/RestaurantDetails';
 import Cart from './Components/Cart/Cart';
 import Profile from './Components/Profile/Profile';
-import CustomerRoute from './Components/Routers/CustomerRoute';
+import CustomerRoute from './Routers/Routers';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUser } from "./Components/State/Authentication/Action";
+import Routers from './Routers/Routers';
 
 
 const App = () => {
@@ -25,7 +26,7 @@ const App = () => {
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
      
-       <CustomerRoute/>
+       <Routers/>
        
     </ThemeProvider>
   );

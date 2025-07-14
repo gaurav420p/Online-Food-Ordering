@@ -33,9 +33,10 @@ public class AppConfig {
                  .authorizeHttpRequests(authorize ->
                          authorize
                                  // 🔐 Only users with RESTAURANT_OWNER or ADMIN role can access /api/admin/**
-                                 .requestMatchers("/api/admin/**").hasAnyRole("RESTAURANT_OWNER", "ADMIN")
+                                 .requestMatchers("/api/admin/**").hasAnyAuthority("ROLE_RESTAURANT_OWNER", "ROLE_ADMIN")
 
-                                 // 🔐 All /api/** requests require authentication
+
+                         // 🔐 All /api/** requests require authentication
                                  .requestMatchers("/api/**").authenticated()
 
                                  // 🌐 All other requests (not matching above) are allowed without login

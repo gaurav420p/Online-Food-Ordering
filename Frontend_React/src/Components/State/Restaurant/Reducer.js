@@ -1,5 +1,5 @@
 
-import * as actionTypes from "../ActionTypes";
+import * as actionTypes from "./ActionTypes";
 
 const initialState = {
     restaurants: [],
